@@ -1,0 +1,59 @@
+import nftone from '../../assets/nfts/1000.webm'
+import nfttwo from "../../assets/nfts/50000.webm";
+import nftthree from "../../assets/nfts/25000.webm";
+import nftfour from "../../assets/nfts/500.webm";
+
+// Mock data for NFTs and tokens
+const nfts = [
+  { id: 1, name: 'Luna Founders #1000', video: nftone },
+  { id: 2, name: 'Luna Founders #50000', video: nfttwo },
+  { id: 3, name: 'Luna Ticket #25000', video: nftthree },
+  { id: 3, name: 'Luna Ticket #500', video: nftfour },
+  // Add more NFTs as needed
+];
+
+
+const tokens = [
+  { id: 1, name: 'Ethereum', symbol: 'ETH', balance: '2.5' },
+  { id: 2, name: 'USD Coin', symbol: 'USDC', balance: '1000' },
+  // Add more tokens as needed
+]
+
+export default function ProfilePage() {
+  return (
+    <div className="space-y-6">
+      <div className="rounded-xl bg-white/10 p-6 backdrop-blur-lg">
+        <h1 className="mb-4 text-2xl font-bold text-white">Your Profile</h1>
+        <div className="text-lg text-white">Total Wallet Balance: 3.5 ETH</div>
+      </div>
+
+      <div className="rounded-xl bg-white/10 p-6 backdrop-blur-lg">
+        <h2 className="mb-4 text-xl font-bold text-white">Your NFTs</h2>
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
+          {nfts.map((nft) => (
+            <div key={nft.id} className="rounded-lg bg-white/5 p-3">
+              <video src={nft.video} className="mb-2 rounded-md" />
+              <p className="text-sm text-white">{nft.name}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="rounded-xl bg-white/10 p-6 backdrop-blur-lg">
+        <h2 className="mb-4 text-xl font-bold text-white">Your Tokens</h2>
+        <div className="space-y-4">
+          {tokens.map((token) => (
+            <div key={token.id} className="flex items-center justify-between rounded-lg bg-white/5 p-3">
+              <div>
+                <p className="font-medium text-white">{token.name}</p>
+                <p className="text-sm text-gray-300">{token.symbol}</p>
+              </div>
+              <p className="text-white">{token.balance}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
