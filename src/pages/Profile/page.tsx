@@ -1,23 +1,17 @@
-import nftone from '../../assets/nfts/1000.webm'
-import nfttwo from "../../assets/nfts/50000.webm";
-import nftthree from "../../assets/nfts/25000.webm";
-import nftfour from "../../assets/nfts/500.webm";
-
 // Mock data for NFTs and tokens
 const nfts = [
-  { id: 1, name: 'Luna Founders #1000', video: nftone },
-  { id: 2, name: 'Luna Founders #50000', video: nfttwo },
-  { id: 3, name: 'Luna Ticket #25000', video: nftthree },
-  { id: 3, name: 'Luna Ticket #500', video: nftfour },
+  { id: 1, name: "Luna Founders #1000", video: "/assets/nfts/1000.webm" },
+  { id: 2, name: "Luna Founders #50000", video: "./assets/nfts/50000.webm" },
+  { id: 3, name: "Luna Ticket #25000", video: "/assets/nfts/25000.webm" },
+  { id: 3, name: "Luna Ticket #500", video: "/assets/nfts/500.webm" },
   // Add more NFTs as needed
 ];
 
-
 const tokens = [
-  { id: 1, name: 'Ethereum', symbol: 'ETH', balance: '2.5' },
-  { id: 2, name: 'USD Coin', symbol: 'USDC', balance: '1000' },
+  { id: 1, name: "Ethereum", symbol: "ETH", balance: "2.5" },
+  { id: 2, name: "USD Coin", symbol: "USDC", balance: "1000" },
   // Add more tokens as needed
-]
+];
 
 export default function ProfilePage() {
   return (
@@ -43,7 +37,10 @@ export default function ProfilePage() {
         <h2 className="mb-4 text-xl font-bold text-white">Your Tokens</h2>
         <div className="space-y-4">
           {tokens.map((token) => (
-            <div key={token.id} className="flex items-center justify-between rounded-lg bg-white/5 p-3">
+            <div
+              key={token.id}
+              className="flex items-center justify-between rounded-lg bg-white/5 p-3"
+            >
               <div>
                 <p className="font-medium text-white">{token.name}</p>
                 <p className="text-sm text-gray-300">{token.symbol}</p>
@@ -54,6 +51,5 @@ export default function ProfilePage() {
         </div>
       </div>
     </div>
-  )
+  );
 }
-

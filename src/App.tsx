@@ -1,12 +1,16 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
-// 
-import { Layout } from './components/Layout';
-import Dashboard from './pages/Dashboard/page';
-import Transactions from './pages/Transactions/page';
-import Referrals from './pages/Referrals/page';
-import Profile from './pages/Profile/page';
-import Settings from './pages/Settings/page';
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
+//
+import { Layout } from "./components/Layout";
+import Dashboard from "./pages/Dashboard/page";
+import Transactions from "./pages/Transactions/page";
+import Referrals from "./pages/Referrals/page";
+import Profile from "./pages/Profile/page";
+import Settings from "./pages/Settings/page";
 
 function App() {
   return (

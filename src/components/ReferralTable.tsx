@@ -1,19 +1,14 @@
 "use client";
 
 import { Copy, Share2 } from "lucide-react";
-import Bear from "../assets/avatars/bear.png"
-import Rabbit from "../assets/avatars/rabbit.png"
-import Panda from "../assets/avatars/panda.png"
-import Astroo from "../assets/avatars/astroo.png"
-import Astro from "../assets/avatars/astro.png"
 
 export function ReferralTable() {
   const data = [
-    { image: Bear, wallet: "0x1234...5678" },
-    { image: Rabbit, wallet: "0xabcd...1234" },
-    { image: Panda, wallet: "0x9876...5432" },
-    { image: Astro, wallet: "0x4c88...Fb98" },
-    { image: Astroo, wallet: "0x3fD7...EDfA" },
+    { image: "/assets/avatars/bear.png", wallet: "0x1234...5678" },
+    { image: "/assets/avatars/rabbit.png", wallet: "0xabcd...1234" },
+    { image: "/assets/avatars/panda.png", wallet: "0x9876...5432" },
+    { image: "/assets/avatars/astroo.png", wallet: "0x4c88...Fb98" },
+    { image: "/assets/avatars/astro.png", wallet: "0x3fD7...EDfA" },
   ]; // Shortened wallet addresses
 
   return (
