@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 // Mock data for NFTs and tokens
 const nfts = [
   { id: 1, name: "Luna Founders #1000", video: "/assets/nfts/1000.webm" },
-  { id: 2, name: "Luna Founders #50000", video: "./assets/nfts/50000.webm" },
+  { id: 2, name: "Luna Founders #50000", video: "/assets/nfts/50000.webm" },
   { id: 3, name: "Luna Ticket #25000", video: "/assets/nfts/25000.webm" },
   { id: 3, name: "Luna Ticket #500", video: "/assets/nfts/500.webm" },
   // Add more NFTs as needed

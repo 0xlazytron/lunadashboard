@@ -9,11 +9,22 @@ import {
 } from "firebase/firestore";
 
 import { db } from "./firebase";
+import { updateDoc } from "firebase/firestore";
 
 export const ReferralService = {
   usersCollection: collection(db, "users"),
+  userCountCollection: collection(db, "userCount"),
   referralDataCollection: collection(db, "referralData"),
 
+  async getTotalUsers(): Promise<number> {
+    const countSnapshot = await getDoc(doc(this.userCountCollection, "count"));
+    if (countSnapshot.exists()) {
+      const data = countSnapshot.data() as { count: number };
+      return data.count;
+    } else {
+      return 0;
+    }
+  },
   async generateReferralCode(length = 8): Promise<string> {
     const chars =
       "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -108,6 +119,15 @@ export const ReferralService = {
       byParent,
     };
     await setDoc(doc(this.usersCollection, wallet), userData);
+    const countSnapshot = await getDoc(doc(this.userCountCollection, "count"));
+    if (countSnapshot.exists()) {
+      const data = countSnapshot.data() as { count: number };
+      updateDoc(doc(this.userCountCollection, "count"), {
+        count: data.count + 1,
+      });
+    } else {
+      await setDoc(doc(this.userCountCollection, "count"), { count: 1 });
+    }
     return {
       exists: false,
       created: true,
@@ -195,6 +215,125 @@ export const ReferralService = {
     };
 
     return buildReferralTree(wallet, 0);
+  },
+  async getTopReferralCount(wallet: string): Promise<number> {
+    const countReferrals = async (userId: string): Promise<number> => {
+      const userDoc = await getDoc(doc(this.usersCollection, userId));
+      const userData = userDoc.data() as UserData;
+      const invitedUsersQuery = query(
+        this.usersCollection,
+        where("by", "==", userData.code)
+      );
+      const invitedUsersSnapshot = await getDocs(invitedUsersQuery);
+      let count = invitedUsersSnapshot.docs.length;
+
+      return count;
+    };
+
+    return countReferrals(wallet);
+  },
+  async getReferralCount(wallet: string): Promise<number> {
+    const countReferrals = async (
+      userId: string,
+      depth: number
+    ): Promise<number> => {
+      const userDoc = await getDoc(doc(this.usersCollection, userId));
+      const userData = userDoc.data() as UserData;
+
+      let count = 0;
+
+      if (depth < 10) {
+        const invitedUsersQuery = query(
+          this.usersCollection,
+          where("by", "==", userData.code)
+        );
+        const invitedUsersSnapshot = await getDocs(invitedUsersQuery);
+        count += invitedUsersSnapshot.docs.length;
+
+        for (const doc of invitedUsersSnapshot.docs) {
+          count += await countReferrals(doc.id, depth + 1);
+        }
+      }
+
+      return count;
+    };
+
+    return countReferrals(wallet, 0);
+  },
+
+  async getReferralDataWithCount(
+    wallet: string
+  ): Promise<{ name: string; count: number }> {
+    const userDoc = await getDoc(doc(this.usersCollection, wallet));
+    const me = userDoc.data() as UserData;
+
+    const countReferrals = async (
+      userId: string,
+      depth: number
+    ): Promise<number> => {
+      const userDoc = await getDoc(doc(this.usersCollection, userId));
+      const userData = userDoc.data() as UserData;
+
+      let count = 0;
+
+      if (depth < 10) {
+        const invitedUsersQuery = query(
+          this.usersCollection,
+          where("by", "==", userData.code)
+        );
+        const invitedUsersSnapshot = await getDocs(invitedUsersQuery);
+        count += invitedUsersSnapshot.docs.length;
+
+        for (const doc of invitedUsersSnapshot.docs) {
+          count += await countReferrals(doc.id, depth + 1);
+        }
+      }
+
+      return count;
+    };
+    let count = await countReferrals(wallet, 0);
+    return { name: me.name, count };
+  },
+  async getAllReferralDataWithCount(): Promise<UserReferralMeta[]> {
+    const allUsersSnapshot = await getDocs(this.usersCollection);
+    const referralData: UserReferralMeta[] = [];
+
+    const countReferrals = async (
+      userId: string,
+      depth: number
+    ): Promise<number> => {
+      const userDoc = await getDoc(doc(this.usersCollection, userId));
+      const userData = userDoc.data() as UserData;
+
+      let count = 0;
+
+      if (depth < 10) {
+        const invitedUsersQuery = query(
+          this.usersCollection,
+          where("by", "==", userData.code)
+        );
+        const invitedUsersSnapshot = await getDocs(invitedUsersQuery);
+        count += invitedUsersSnapshot.docs.length;
+
+        for (const doc of invitedUsersSnapshot.docs) {
+          count += await countReferrals(doc.id, depth + 1);
+        }
+      }
+
+      return count;
+    };
+
+    for (const doc of allUsersSnapshot.docs) {
+      const userData = doc.data() as UserData;
+      const count = await countReferrals(doc.id, 0);
+      referralData.push({
+        pubKey: userData.wallet,
+        name: userData.name || "No Name",
+        count,
+      });
+    }
+
+    return referralData;
   },
   async getPerLevelReferrals(
     referrals: Referral[]

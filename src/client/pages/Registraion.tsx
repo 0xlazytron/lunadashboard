@@ -51,7 +51,7 @@ export const RegistrationPage: React.FC = () => {
 
   const registerUser = async (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    const { ...formDataWithoutCode } = formData;
+    const { by, ...formDataWithoutCode } = formData;
 
     const allFieldsFilled = Object.values(formDataWithoutCode).every(
       (value) => value !== ""

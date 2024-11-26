@@ -50,6 +50,12 @@ interface Referral {
   data: any;
 }
 
+interface UserReferralMeta {
+  pubKey: string;
+  name: string;
+  count: number;
+}
+
 interface Collection {
   number: string;
   video: string;
