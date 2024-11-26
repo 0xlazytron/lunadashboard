@@ -1,14 +1,12 @@
-"use client";
-
 import { useState } from "react";
-import { Button } from "../../components/ui/Button";
+import { Button } from "../components/ui/Button";
 import { ExternalLink } from "lucide-react";
 
 const transactions = [
   {
     id: 1,
     type: "Deposit",
-    amount: "0.5 ETH",
+    amount: "0.5 SOL",
     date: "2023-06-01",
     status: "Completed",
     link: "https://etherscan.io/tx/0x123",
@@ -16,7 +14,7 @@ const transactions = [
   {
     id: 2,
     type: "Withdrawal",
-    amount: "1.2 ETH",
+    amount: "1.2 SOL",
     date: "2023-05-28",
     status: "Pending",
     link: "https://etherscan.io/tx/0x456",
@@ -24,7 +22,7 @@ const transactions = [
   {
     id: 3,
     type: "Reward",
-    amount: "0.1 ETH",
+    amount: "0.1 SOL",
     date: "2023-05-25",
     status: "Completed",
     link: "https://etherscan.io/tx/0x789",
@@ -32,7 +30,7 @@ const transactions = [
   // Add more transactions as needed
 ];
 
-export default function TransactionsPage() {
+export function TransactionsPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const transactionsPerPage = 10;
   const totalPages = Math.ceil(transactions.length / transactionsPerPage);

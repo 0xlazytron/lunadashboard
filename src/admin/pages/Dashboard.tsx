@@ -22,7 +22,7 @@ export default function DashboardPage() {
         <div className="flex flex-col md:flex-row md:gap-8">
           <div className="mb-6 md:mb-0 flex-1">
             <h1 className="mb-2 text-3xl font-bold text-green-400">
-              REFER FRIENDS. EARN BY EACH FRIENDS TRADES.
+              REFER FRIENDS. EARN BY EACH FRIENDS AFFLIATES.
             </h1>
             <p className="mb-4 text-white">
               Earn Up To 30% Commission On Every Trade Across Spot.
