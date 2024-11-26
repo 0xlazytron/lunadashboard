@@ -23,7 +23,7 @@ export const RegistrationPage: React.FC = () => {
       const checkExistence = async () => {
         const exists = await ReferralService.checkExistence(walletAddress);
         if (exists) {
-          navigate("/admin", { replace: true });
+          navigate("/dashboard", { replace: true });
         } else {
           if (ref.current) {
             ref.current.style.display = exists ? "none" : "block";
@@ -51,7 +51,7 @@ export const RegistrationPage: React.FC = () => {
 
   const registerUser = async (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    const { by, ...formDataWithoutCode } = formData;
+    const { ...formDataWithoutCode } = formData;
 
     const allFieldsFilled = Object.values(formDataWithoutCode).every(
       (value) => value !== ""
@@ -64,10 +64,10 @@ export const RegistrationPage: React.FC = () => {
     try {
       const exists = await ReferralService.checkExistence(formData.wallet);
       if (exists) {
-        navigate("/admin");
+        navigate("/dashboard");
       } else {
         await ReferralService.registerUser(formData);
-        navigate("/admin");
+        navigate("/dashboard");
       }
     } catch (error) {
       console.error("Error registering user:", error);

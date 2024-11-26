@@ -8,7 +8,7 @@ export function ReferralSummary() {
           <span className="text-white">$1000</span>
         </div>
         <div className="flex justify-between">
-          <span className="text-gray-300">Friend who started trading:</span>
+          <span className="text-gray-300">Friend Who Purchased:</span>
           <span className="text-white">1</span>
         </div>
         <div className="flex justify-between">

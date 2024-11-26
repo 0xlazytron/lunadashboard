@@ -25,7 +25,7 @@ export default function DashboardPage() {
               REFER FRIENDS. EARN BY EACH FRIENDS AFFLIATES.
             </h1>
             <p className="mb-4 text-white">
-              Earn Up To 30% Commission On Every Trade Across Spot.
+              Earn Up To 12% Commission On Collective NFT Sales.
             </p>
             <p className="text-sm text-gray-300">
               Data update time refers to UTC + 0 time zone. the calculation of

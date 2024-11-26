@@ -44,7 +44,7 @@ export function SettingsPage() {
             placeholder="Enter your wallet address"
           />
         </VBox>
-        <VBox>
+        {/* <VBox>
           <Label htmlFor="chain-select">Select Chain for Withdrawal</Label>
           <Select
             value={selectedChain}
@@ -59,7 +59,7 @@ export function SettingsPage() {
               <SelectItem value="polygon">Polygon</SelectItem>
             </SelectContent>
           </Select>
-        </VBox>
+        </VBox> */}
         <button
           type="submit"
           className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"

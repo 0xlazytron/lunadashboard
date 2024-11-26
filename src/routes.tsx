@@ -14,6 +14,7 @@ import { Privacy } from "./client/services/Privacy";
 import { ClientLayout } from "./client/layouts/ClientLayout";
 import ProtectedRoute from "./admin/routes/protected";
 import { RegistrationPage } from "./client/pages/Registraion";
+import AdminOverview from "./admin/pages/Overview";
 
 export function AppRoutes() {
   return (
@@ -29,12 +30,13 @@ export function AppRoutes() {
       </Route>
 
       {/* Admin Routes */}
-      <Route path="/admin" element={<ProtectedRoute element={AdminLayout} />}>
+      <Route path="/dashboard" element={<ProtectedRoute element={AdminLayout} />}>
         <Route index element={<Dashboard />} />
         <Route path="transactions" element={<TransactionsPage />} />
         <Route path="referrals" element={<ReferralsPage />} />
         <Route path="profile" element={<ProfilePage />} />
         <Route path="settings" element={<SettingsPage />} />
+        <Route path="overview" element={<AdminOverview />} />
       </Route>
     </Routes>
   );

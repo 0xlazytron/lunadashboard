@@ -11,11 +11,11 @@ const nfts = [
   // Add more NFTs as needed
 ];
 
-const tokens = [
-  { id: 1, name: "Ethereum", symbol: "ETH", balance: "2.5" },
-  { id: 2, name: "USD Coin", symbol: "USDC", balance: "1000" },
-  // Add more tokens as needed
-];
+// const tokens = [
+//   { id: 1, name: "Ethereum", symbol: "ETH", balance: "2.5" },
+//   { id: 2, name: "USD Coin", symbol: "USDC", balance: "1000" },
+//   // Add more tokens as needed
+// ];
 
 export function ProfilePage() {
   const wallet = useWallet();
@@ -28,6 +28,7 @@ export function ProfilePage() {
         wallet.publicKey!,
         "confirmed"
       );
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       setBalance((_prev) => _balance / LAMPORTS_PER_SOL);
     }
     if (wallet && connection && wallet.connected) {
@@ -56,7 +57,7 @@ export function ProfilePage() {
         </div>
       </div>
 
-      <div className="rounded-xl bg-white/10 p-6 backdrop-blur-lg">
+      {/* <div className="rounded-xl bg-white/10 p-6 backdrop-blur-lg">
         <h2 className="mb-4 text-xl font-bold text-white">Your Tokens</h2>
         <div className="space-y-4">
           {tokens.map((token) => (
@@ -72,7 +73,7 @@ export function ProfilePage() {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom"; // For navigation to other pages
-// @ts-ignore
-import { Link as ScrollLink, scroller } from "react-scroll"; // For scrolling to sections within the same page
+import { Link as scroller } from "react-scroll"; // For scrolling to sections within the same page
 import { FaBars, FaTimes, FaInstagram, FaDiscord } from "react-icons/fa"; // Social icons
 
 import { FaTwitter, FaTelegramPlane } from "react-icons/fa";
@@ -27,7 +26,7 @@ export function Nav() {
         wallet.publicKey!,
         "confirmed"
       );
-      setBalance((_prev) => _balance / LAMPORTS_PER_SOL);
+      setBalance((prev) => _balance / LAMPORTS_PER_SOL);
     }
     if (wallet && connection && wallet.connected) {
       fetch();
@@ -143,7 +142,7 @@ export function Nav() {
 
             {wallet.connected ? (
               <Link
-                to={"/admin"}
+                to={"/dashboard"}
                 className="text-white hover:text-white px-3 py-2 rounded-md text-[20px] cursor-pointer"
               >
                 <UserRoundCheck />

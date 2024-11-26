@@ -7,34 +7,40 @@ import {
   User,
   Settings,
   LogOut,
+  Shield,
 } from "lucide-react";
 
 const routes = [
   {
-    href: "/admin",
+    href: "/dashboard",
     icon: LayoutDashboard,
     label: "Dashboard",
   },
   {
-    href: "/admin/transactions",
+    href: "/dashboard/transactions",
     icon: Receipt,
     label: "Transactions",
   },
   {
-    href: "/admin/referrals",
+    href: "/dashboard/referrals",
     icon: Users,
     label: "Referrals",
   },
   {
-    href: "/admin/profile",
+    href: "/dashboard/profile",
     icon: User,
     label: "Profile",
   },
   {
-    href: "/admin/settings",
+    href: "/dashboard/settings",
     icon: Settings,
     label: "Settings",
   },
+  {
+    href: "/dashboard/overview",
+    icon: Shield,
+    label: "Admin Overview"
+  }
 ];
 
 export function Sidebar() {
@@ -52,11 +58,10 @@ export function Sidebar() {
             <NavLink
               key={route.href}
               to={route.href}
-              className={`flex items-center rounded-lg px-4 py-2 transition-colors ${
-                isActive
-                  ? "bg-white/20 text-white"
-                  : "text-gray-300 hover:bg-white/10 hover:text-white"
-              }`}
+              className={`flex items-center rounded-lg px-4 py-2 transition-colors ${isActive
+                ? "bg-white/20 text-white"
+                : "text-gray-300 hover:bg-white/10 hover:text-white"
+                }`}
             >
               <Icon className="mr-3 h-5 w-5" />
               {route.label}
@@ -64,12 +69,12 @@ export function Sidebar() {
           );
         })}
       </nav>
-      <div className="mt-auto pt-4">
+      {/* <div className="mt-auto pt-4">
         <button className="flex w-full items-center rounded-lg px-4 py-2 text-gray-300 hover:bg-white/10 hover:text-white">
           <LogOut className="mr-3 h-5 w-5" />
           Log out
         </button>
-      </div>
+      </div> */}
     </aside>
   );
 }
