@@ -24,7 +24,7 @@ const rankSystem = [
 
 const Card = ({ title, children }: { title: string; children: React.ReactNode }) => (
     <div className="bg-white/10 rounded-xl p-6 backdrop-blur-lg">
-        <h2 className="text-2xl font-bold text-white mb-4">{title}</h2>
+        <h2 className="krona text-2xl font-bold text-white mb-4">{title}</h2>
         {children}
     </div>
 );
@@ -32,18 +32,18 @@ const Card = ({ title, children }: { title: string; children: React.ReactNode })
 export default function ReferralRules() {
     return (
         <div className="space-y-6">
-            <h1 className="text-3xl font-bold text-white mb-6">Referral Rules</h1>
+            <h1 className="text-3xl font-bold text-white mb-6 krona">Referral Rules</h1>
 
             <Card title="10-Level Affiliate System">
-                <p className="text-green-800 bg-green-100 p-4 rounded-lg mb-4">
+                <p className="poppins-regular text-green-800 bg-green-100 p-4 rounded-lg mb-4">
                     Our affiliate system allows partners to earn commissions for selling LunaFounder NFTs.
                     The revenue is distributed across 10 levels, based on the price of the purchased NFT.
                 </p>
                 <table className="w-full text-white">
                     <thead>
                         <tr className="border-b border-white/20">
-                            <th className="text-left py-2">Level</th>
-                            <th className="text-right py-2">Commission (%)</th>
+                            <th className="text-left py-2 poppins-regular">Level</th>
+                            <th className="text-right py-2 poppins-regular">Commission (%)</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -55,7 +55,7 @@ export default function ReferralRules() {
                         ))}
                     </tbody>
                 </table>
-                <ul className="list-disc list-inside text-white mt-4 space-y-2">
+                <ul className="list-disc list-inside text-white mt-4 space-y-2 poppins-regular">
                     <li>Commissions are paid instantly after NFT purchase.</li>
                     <li>Smart contract verifies the connection between buyer and affiliates.</li>
                     <li>Each wallet must own at least one LunaFounder NFT to qualify for commissions.</li>
@@ -64,11 +64,11 @@ export default function ReferralRules() {
             </Card>
 
             <Card title="Rank System">
-                <p className="text-green-800 bg-green-100 p-4 rounded-lg mb-4">
+                <p className="text-green-800 bg-green-100 p-4 rounded-lg mb-4 poppins-regular">
                     The rank system rewards affiliates based on their generated team sales.
                     Higher ranks unlock bonuses and additional earnings.
                 </p>
-                <table className="w-full text-white">
+                <table className="w-full text-white poppins-regular">
                     <thead>
                         <tr className="border-b border-white/20">
                             <th className="text-left py-2">Rank</th>
@@ -79,7 +79,7 @@ export default function ReferralRules() {
                     </thead>
                     <tbody>
                         {rankSystem.map(({ rank, sales, bonus, icon: Icon }) => (
-                            <tr key={rank} className="border-b border-white/10">
+                            <tr key={rank} className="border-b border-white/10 poppins-regular">
                                 <td className="py-2">{rank}</td>
                                 <td className="text-right py-2">${sales.toLocaleString()}</td>
                                 <td className="text-right py-2">${bonus.toLocaleString()}</td>
@@ -90,7 +90,7 @@ export default function ReferralRules() {
                         ))}
                     </tbody>
                 </table>
-                <ul className="list-disc list-inside text-white mt-4 space-y-2">
+                <ul className="list-disc list-inside text-white mt-4 space-y-2 poppins-regular">
                     <li>Team sales are calculated based on NFT purchases across the entire structure.</li>
                     <li>Ranks are cumulative; affiliates hold the highest rank they qualify for.</li>
                     <li>A maximum of 50% of sales from a single structure counts toward rank advancement (50/50 rule).</li>
@@ -99,7 +99,7 @@ export default function ReferralRules() {
             </Card>
 
             <Card title="IMPORTANT INFO">
-                <ul className="list-disc list-inside text-white space-y-2">
+                <ul className="list-disc list-inside text-white space-y-2 poppins-regular">
                     <li>Automatic calculation and payout of commissions.</li>
                     <li>Real-time or regularly updated team sales calculations.</li>
                     <li>Rank bonus distribution (can be manually triggered by admin).</li>

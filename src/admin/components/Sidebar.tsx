@@ -76,7 +76,7 @@ export function Sidebar() {
                 }`}
             >
               <Icon className="mr-3 h-5 w-5" />
-              <span>{route.label}</span>
+              <span className="poppins-regular">{route.label}</span>
             </NavLink>
           );
         })}

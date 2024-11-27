@@ -30,8 +30,8 @@ const StatCard = ({
   <div className="bg-white/10 rounded-xl p-6 flex items-center">
     <Icon className="h-12 w-12 text-green-400 mr-4" />
     <div>
-      <h3 className="text-lg font-semibold text-white">{title}</h3>
-      <p className="text-2xl font-bold text-green-400">{value}</p>
+      <h3 className="krona text-lg font-semibold text-white">{title}</h3>
+      <p className="poppins-regular text-2xl font-bold text-green-400">{value}</p>
     </div>
   </div>
 );
@@ -60,7 +60,7 @@ const ReferralTree = () => {
   }, []);
   return (
     <div className="bg-white/10 rounded-xl p-6 mt-6">
-      <h3 className="text-lg font-semibold text-white mb-4">Referral Tree</h3>
+      <h3 className="krona text-lg font-semibold text-white mb-4">Referral Tree</h3>
       <div className="text-white">
         <div className="flex flex-wrap gap-4">
           {data.map((user, index) => (
@@ -72,13 +72,13 @@ const ReferralTree = () => {
               className="flex items-center gap-2"
             >
               <span
-                className="text-blue-400 hover:text-blue-300 hover:underline"
+                className="text-blue-400 hover:text-blue-300 hover:underline poppins-regular"
                 aria-label={`View ${user.name}'s referrals`}
               >
                 {user.name}
               </span>
               <span
-                className="inline-flex items-center justify-center w-6 h-6 bg-green-500 rounded-full text-xs font-medium text-white"
+                className="poppins-regular inline-flex items-center justify-center w-6 h-6 bg-green-500 rounded-full text-xs font-medium text-white"
                 aria-label={`${user.count} referrals`}
               >
                 {user.count}
@@ -106,12 +106,12 @@ export default function AdminOverview() {
       setTotalUsers(_totalUsers);
     }
     fetchData();
-    return () => {};
+    return () => { };
   }, []);
 
   return (
     <div className="space-y-6">
-      <h1 className="text-3xl font-bold text-white mb-6">Admin Overview</h1>
+      <h1 className="text-3xl font-bold text-white mb-6 krona">Admin Overview</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <StatCard title="Total Users" value={totalUsers} icon={Users} />
         <StatCard
@@ -146,9 +146,8 @@ function ReferralNode({
     <div className={`${isRoot ? "" : "ml-8"} mb-4`}>
       <div className="flex items-center gap-3">
         <div
-          className={`flex h-10 w-10 items-center justify-center rounded-full ${
-            isRoot ? "bg-green-500" : "bg-blue-500"
-          }`}
+          className={`flex h-10 w-10 items-center justify-center rounded-full ${isRoot ? "bg-green-500" : "bg-blue-500"
+            }`}
         >
           <span className="text-sm font-medium text-white">
             {node.name

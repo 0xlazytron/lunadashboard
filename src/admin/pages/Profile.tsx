@@ -33,22 +33,22 @@ export function ProfilePage() {
   return (
     <div className="space-y-6">
       <div className="rounded-xl bg-white/10 p-6 backdrop-blur-lg">
-        <h1 className="mb-4 text-2xl font-bold text-white">Your Profile</h1>
-        <div className="text-lg text-white">
+        <h1 className="mb-4 text-2xl font-bold text-white krona">Your Profile</h1>
+        <div className="text-lg text-white poppins-regular">
           Total Wallet Balance:{balance.toFixed(2)} SOL
         </div>
       </div>
 
       <div className="rounded-xl bg-white/10 p-6 backdrop-blur-lg">
-        <h2 className="mb-4 text-xl font-bold text-white">YOUR NFTS</h2>
-        <p className="text-green-800 bg-green-100 p-4 rounded-lg mb-4">
+        <h2 className="mb-4 text-xl font-bold text-white krona">YOUR NFTS</h2>
+        <p className="poppins-regular text-green-800 bg-green-100 p-4 rounded-lg mb-4">
           If you hold LunaFounder NFTs your are Eligible for the Referall earning.
         </p>
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
           {nfts.map((nft) => (
             <div key={nft.id} className="rounded-lg bg-white/5 p-3">
               <video src={nft.video} className="mb-2 rounded-md" />
-              <p className="text-sm text-white">{nft.name}</p>
+              <p className="poppins-regular text-sm text-white">{nft.name}</p>
             </div>
           ))}
         </div>

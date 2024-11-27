@@ -29,18 +29,18 @@ export function SettingsPage() {
 
   return (
     <div className="rounded-xl bg-white/10 p-6 backdrop-blur-lg">
-      <h1 className="mb-6 text-2xl font-bold text-white">Settings</h1>
-      <VBox className="mb-6">
+      <h1 className="mb-6 text-2xl font-bold text-white krona">Settings</h1>
+      <VBox className="mb-6 poppins-regular">
         <ReferralLinkComponent code={user?.code!} />
       </VBox>
-      <form onSubmit={handleSubmit} className="space-y-6">
+      <form onSubmit={handleSubmit} className="space-y-6 poppins-regular">
         <VBox>
-          <Label htmlFor="wallet-address">Withdrawal Wallet Address</Label>
+          <Label htmlFor="wallet-address poppins-regular">Withdrawal Wallet Address</Label>
           <Input
             id="wallet-address"
             value={wallet.publicKey?.toBase58()}
             disabled
-            className="mt-1 bg-white/5 text-white"
+            className="mt-1 bg-white/5 text-white poppins-regular"
             placeholder="Enter your wallet address"
           />
         </VBox>
@@ -62,7 +62,7 @@ export function SettingsPage() {
         </VBox> */}
         <button
           type="submit"
-          className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
+          className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 poppins-regular"
         >
           Save Settings
         </button>
