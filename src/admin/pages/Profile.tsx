@@ -9,8 +9,6 @@ const nfts = [
   { id: 3, name: "Luna Ticket #500", video: "/assets/nfts/500.webm" },
 ];
 
-
-
 export function ProfilePage() {
   const wallet = useWallet();
   const { connection } = useConnection();
@@ -33,7 +31,9 @@ export function ProfilePage() {
   return (
     <div className="space-y-6">
       <div className="rounded-xl bg-white/10 p-6 backdrop-blur-lg">
-        <h1 className="mb-4 text-2xl font-bold text-white krona">Your Profile</h1>
+        <h1 className="mb-4 text-2xl font-bold text-white krona">
+          Your Profile
+        </h1>
         <div className="text-lg text-white poppins-regular">
           Total Wallet Balance:{balance.toFixed(2)} SOL
         </div>
@@ -42,7 +42,8 @@ export function ProfilePage() {
       <div className="rounded-xl bg-white/10 p-6 backdrop-blur-lg">
         <h2 className="mb-4 text-xl font-bold text-white krona">YOUR NFTS</h2>
         <p className="poppins-regular text-green-800 bg-green-100 p-4 rounded-lg mb-4">
-          If you hold LunaFounder NFTs your are Eligible for the Referall earning.
+          If you hold LunaFounder NFTs with a minimum value of $500, you qualify
+          for the Referral/Streamline bonus.
         </p>
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
           {nfts.map((nft) => (

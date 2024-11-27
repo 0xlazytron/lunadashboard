@@ -45,22 +45,30 @@ const routes = [
   {
     href: "/dashboard/rules",
     icon: Book,
-    label: "Referral Rules"
+    label: "Referral Rules",
   },
   {
     href: "/dashboard/badges",
     icon: Award,
-    label: "Badges"
-  }
+    label: "Badges",
+  },
 ];
 
-export function Sidebar() {
+export function Sidebar({
+  className = "",
+  callBack = () => {},
+}: {
+  className: string;
+  callBack: () => void;
+}) {
   const location = useLocation(); // Replacing usePathname with useLocation
   const { publicKey } = useWallet();
   const pathname = location.pathname;
 
   return (
-    <aside className="hidden w-64 shrink-0 rounded-xl bg-white/10 p-4 backdrop-blur-lg md:block">
+    <aside
+      className={`${className} w-64 shrink-0 rounded-xl bg-white/10 p-4 backdrop-blur-lg`}
+    >
       <nav className="space-y-2">
         {routes.map((route) => {
           const Icon = route.icon;
@@ -70,10 +78,12 @@ export function Sidebar() {
             <NavLink
               key={route.href}
               to={route.disabled ? "" : route.href}
-              className={`flex items-center rounded-lg px-4 py-2 transition-colors ${isActive
-                ? "bg-white/20 text-white"
-                : "text-gray-300 hover:bg-white/10 hover:text-white"
-                }`}
+              onClick={callBack}
+              className={`flex items-center rounded-lg px-4 py-2 transition-colors ${
+                isActive
+                  ? "bg-white/20 text-white"
+                  : "text-gray-300 hover:bg-white/10 hover:text-white"
+              }`}
             >
               <Icon className="mr-3 h-5 w-5" />
               <span className="poppins-regular">{route.label}</span>
@@ -83,13 +93,14 @@ export function Sidebar() {
 
         {publicKey &&
           publicKey.toBase58() ===
-          "Do6xPSZRBbpVjeJqMKtTeUzs9wrYRjLKdb649GacinSY" && (
+            "Do6xPSZRBbpVjeJqMKtTeUzs9wrYRjLKdb649GacinSY" && (
             <NavLink
               to={"/dashboard/overview"}
-              className={`flex items-center rounded-lg px-4 py-2 transition-colors ${pathname === "/dashboard/overview"
-                ? "bg-white/20 text-white"
-                : "text-gray-300 hover:bg-white/10 hover:text-white"
-                }`}
+              className={`flex items-center rounded-lg px-4 py-2 transition-colors ${
+                pathname === "/dashboard/overview"
+                  ? "bg-white/20 text-white"
+                  : "text-gray-300 hover:bg-white/10 hover:text-white"
+              }`}
             >
               <Shield className="mr-3 h-5 w-5" />
               <span>Admin Overview</span>

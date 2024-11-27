@@ -6,10 +6,13 @@ import { MouseEvent, useEffect, useRef, useState } from "react";
 import { ReferralService } from "../../lib/referral";
 import { ChangeEvent } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { LoaderCircle } from "lucide-react";
 
 export const RegistrationPage: React.FC = () => {
   const navigate = useNavigate();
   const wallet = useWallet();
+
+  const [loading, setLoading] = useState(false);
 
   const ref = useRef<HTMLDivElement>(null);
   const params = useParams();
@@ -51,6 +54,7 @@ export const RegistrationPage: React.FC = () => {
 
   const registerUser = async (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
+    setLoading(true);
     const { by, ...formDataWithoutCode } = formData;
 
     const allFieldsFilled = Object.values(formDataWithoutCode).every(
@@ -58,6 +62,8 @@ export const RegistrationPage: React.FC = () => {
     );
     if (!allFieldsFilled) {
       alert("Please fill the form");
+      setLoading(false);
+
       return;
     }
 
@@ -72,6 +78,8 @@ export const RegistrationPage: React.FC = () => {
     } catch (error) {
       console.error("Error registering user:", error);
     }
+
+    setLoading(false);
   };
 
   return (
@@ -109,9 +117,13 @@ export const RegistrationPage: React.FC = () => {
             />
             <button
               onClick={registerUser}
-              className="w-full bg-blue-500 text-white p-2 rounded"
+              className="w-full bg-blue-500 flex justify-center items-center text-white p-2 rounded"
             >
-              Proceed Registration
+              {loading ? (
+                <LoaderCircle className="animate-spin" />
+              ) : (
+                <span> Proceed Registration</span>
+              )}
             </button>
           </div>
         </VBox>

@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
 import { LAMPORTS_PER_SOL } from "@solana/web3.js";
-import { MenuIcon } from "lucide-react";
+import { CopyIcon, MenuIcon } from "lucide-react";
 import { NetworkSwitcher } from "../../components/web3/NetworkSwitcher";
 import { Button } from "../../components/ui/Button";
 import { Link } from "react-router-dom";
 import { Sidebar } from "./Sidebar";
+import { ReferralService } from "../../lib/referral";
+import { toast } from "react-toastify";
 
 export function Navbar() {
   const { connection } = useConnection();
@@ -13,6 +15,17 @@ export function Navbar() {
   const [balance, setBalance] = useState(0);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
+  const [selectedChain] = useState("");
+
+  const [user, setUser] = useState<UserData>();
+
+  useEffect(() => {
+    ReferralService.getUser(wallet.publicKey?.toBase58()!).then((data) => {
+      if (data) {
+        setUser(data);
+      }
+    });
+  }, []);
   useEffect(() => {
     async function fetch() {
       const _balance = await connection.getBalance(
@@ -30,6 +43,24 @@ export function Navbar() {
     setIsSidebarOpen((prev) => !prev);
   };
 
+  const handleCopyToClipboard = () => {
+    if (!user) {
+      return;
+    }
+    const referralLink = `${window.location.origin}/referral/${
+      user?.code ?? ""
+    }`;
+
+    navigator.clipboard
+      .writeText(referralLink)
+      .then(() => {
+        toast("Referral link copied to clipboard!", { type: "success" });
+      })
+      .catch((err) => {
+        console.error("Failed to copy: ", err);
+      });
+  };
+
   return (
     <nav className="flex items-center z-30 justify-between rounded-xl bg-white/10 p-4 backdrop-blur-lg">
       <Link to={"/"} className="flex items-center gap-4">
@@ -39,9 +70,17 @@ export function Navbar() {
       <div className="flex items-center gap-4">
         <div className="flex bg-transparent">
           <NetworkSwitcher />
-          <div className="hidden lg:flex justify-center items-center w-fit bg-[#86C248]  duration-300 text-white font-bold px-4 rounded-full">
-            <span>{balance.toFixed(2)} SOL</span>
-          </div>
+          <button
+            onClick={handleCopyToClipboard}
+            className="hidden lg:flex gap-2 justify-center  py-1 items-center w-fit bg-[#86C248]  duration-300 text-white font-bold px-4 rounded-full"
+          >
+            <span className="text-sm font-light">
+              <b className="font-bold">UserId</b>: {user?.code}
+            </span>
+            <span className="p-1 h-fit w-fit text-black  py-0 bg-transparent rounded-md">
+              <CopyIcon stroke="white" className="w-4" />
+            </span>
+          </button>
         </div>
         <img
           src={"/assets/avatars/rabbit.png"}

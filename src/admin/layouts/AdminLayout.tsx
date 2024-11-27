@@ -11,7 +11,7 @@ export function AdminLayout() {
       <div className="flex min-h-screen flex-col gap-4 md:gap-8">
         <Navbar />
         <div className="flex flex-1 gap-4 md:gap-8 z-10">
-          <Sidebar callBack={() => {}} className="hidden md:block" />
+          <Sidebar callBack={() => {}} className="hidden lg:block" />
           <div className="flex-1 overflow-auto">
             <Outlet />
           </div>

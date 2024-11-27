@@ -19,7 +19,9 @@ export function Layout({ children }: LayoutProps) {
         <div className="flex flex-1 gap-4 md:gap-8 z-10">
           {location.pathname !== "/" &&
             location.pathname !== "/rf" &&
-            location.pathname !== "/pf" && <Sidebar />}
+            location.pathname !== "/pf" && (
+              <Sidebar callBack={() => {}} className="hidden lg:block" />
+            )}
           <div className="flex-1 overflow-auto">{children}</div>
         </div>
         <Footer />

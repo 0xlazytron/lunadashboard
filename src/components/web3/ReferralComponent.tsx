@@ -1,3 +1,5 @@
+import { toast } from "react-toastify";
+
 export const ReferralLinkComponent = ({ code }: { code: string }) => {
   // const referralLink = `https://lunalotto.io/referral/${code ?? ""}`;
   const referralLink = `${window.location.origin}/referral/${code ?? ""}`;
@@ -6,7 +8,7 @@ export const ReferralLinkComponent = ({ code }: { code: string }) => {
     navigator.clipboard
       .writeText(referralLink)
       .then(() => {
-        alert("Referral link copied to clipboard!");
+        toast("Referral link copied to clipboard!", { type: "success" });
       })
       .catch((err) => {
         console.error("Failed to copy: ", err);

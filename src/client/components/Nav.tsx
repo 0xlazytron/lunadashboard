@@ -38,7 +38,7 @@ const socialLinks = [
     ),
   },
   {
-    href: "https://discord.gg/ZDX7wR29",
+    href: "https://discord.gg/hG3Vz8wq",
     icon: (
       <FaDiscord className="w-6 h-6 hover:scale-110 transition-transform duration-300 cursor-pointer" />
     ),
