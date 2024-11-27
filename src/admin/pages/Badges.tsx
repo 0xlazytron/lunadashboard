@@ -31,21 +31,21 @@ const badges = [
 const BadgeCard = ({ badge }) => {
     return <div className="bg-white/10 rounded-xl p-6 backdrop-blur-lg flex flex-col items-center">
         <img src={badge.image} alt={badge.name} className="w-fit h-32 mb-4" />
-        <h3 className="text-xl font-bold text-white mb-2 font-['Press_Start_2P'] nft-text">{badge.name}</h3>
-        <p className="text-gray-300 text-center">{badge.description}</p>
+        <h3 className="krona text-xl font-bold text-white mb-2 font-['Press_Start_2P'] nft-text">{badge.name}</h3>
+        <p className="poppins-regular text-gray-300 text-center" id='lexend'>{badge.description}</p>
     </div>;
 };
 
 const Badges = () => {
     return (
         <div className="container mx-auto p-8">
-            <h1 className="text-3xl font-bold text-white mb-6 font-['Press_Start_2P'] nft-text">Achievement Badges</h1>
+            <h1 className=" krona text-3xl font-bold text-white mb-6 font-['Press_Start_2P'] nft-text">Achievement Badges</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {badges.map((badge, index) => (
                     <BadgeCard key={index} badge={badge} />
                 ))}
             </div>
-        </div>
+        </div >
     );
 };
 

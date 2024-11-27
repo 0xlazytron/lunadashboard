@@ -21,17 +21,17 @@ export default function DashboardPage() {
       <div className="mb-8 rounded-xl bg-white/10 p-6 backdrop-blur-lg">
         <div className="flex flex-col md:flex-row md:gap-8">
           <div className="mb-6 md:mb-0 flex-1">
-            <h1 className="mb-2 text-3xl font-bold text-green-400">
+            <h1 className=" krona mb-2 text-3xl font-bold text-green-400">
               REFER FRIENDS. EARN BY EACH FRIENDS AFFLIATES.
             </h1>
-            <p className="mb-4 text-white">
+            <p className="poppins-regular mb-4 text-white">
               Earn Up To 12% Commission On Collective NFT Sales.
             </p>
-            <p className="text-sm text-gray-300">
+            <p className="poppins-regular text-sm text-gray-300">
               Data update time refers to UTC + 0 time zone. the calculation of
               today&apos;s data is based on the assets of previous day
             </p>
-            <button className="mt-4 text-sm text-green-400 hover:underline">
+            <button className=" poppins-regular mt-4 text-sm text-green-400 hover:underline">
               Referral Rules
             </button>
           </div>

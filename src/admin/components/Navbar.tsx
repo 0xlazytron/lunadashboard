@@ -34,7 +34,7 @@ export function Navbar() {
     <nav className="flex items-center z-30 justify-between rounded-xl bg-white/10 p-4 backdrop-blur-lg">
       <Link to={"/"} className="flex items-center gap-4">
         <img src={"/assets/logo.svg"} alt="Logo" className="h-10 w-10" />
-        <h1 className="text-2xl font-bold text-white">Lunalotto</h1>
+        <h1 className="krona text-2xl font-bold text-white">Lunalotto</h1>
       </Link>
       <div className="flex items-center gap-4">
         <div className="flex bg-transparent">
