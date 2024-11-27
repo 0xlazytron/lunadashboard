@@ -156,7 +156,6 @@ export function Nav() {
               target="_blank"
               className="p-1 rounded-lg shadow-lg border border-gray-600 bg-white/5"
             >
-              {" "}
               <FaInstagram className="w-6 h-6 hover:scale-110 transition-transform duration-300 cursor-pointer" />
             </a>
             <a
@@ -164,7 +163,6 @@ export function Nav() {
               target="_blank"
               className="p-1 rounded-lg shadow-lg border border-gray-600 bg-white/5"
             >
-              {" "}
               <FaDiscord className="w-6 h-6 hover:scale-110 transition-transform duration-300 cursor-pointer" />
             </a>
             <a
@@ -172,7 +170,6 @@ export function Nav() {
               target="_blank"
               className="p-1 rounded-lg shadow-lg border border-gray-600 bg-white/5"
             >
-              {" "}
               <FaTwitter className="w-6 h-6 hover:scale-110 transition-transform duration-300 cursor-pointer" />
             </a>
             <a
@@ -224,16 +221,29 @@ export function Nav() {
                 </div>
               )
             )}
-            <button className="mt-4 bg-[#86C248] transition-all font-sans hover:scale-105 duration-300 hover:bg-red-600 text-white  py-2 px-4 rounded-full">
-              Connect Wallet
-            </button>
+            <WalletMultiButton
+              style={{
+                backgroundColor: "transparent",
+                padding: 0,
+                height: "fit-content",
+              }}
+            >
+              {wallet.connected ? (
+                <span>{balance.toFixed(2)} SOL</span>
+              ) : (
+                <></>
+              )}
+              {wallet.connected && <span className="w-3"></span>}
+              <span>
+                {wallet.connected ? "Disconnect" : "Connect Wallet"}
+              </span>
+            </WalletMultiButton>
             <div className="flex space-x-4 mt-4">
               <a
                 href="https://www.instagram.com/lunalotto.io/profilecard/?igsh=Z240NHlydnc1aTRv"
                 target="_blank"
                 className="p-1 rounded-lg shadow-lg border border-gray-600 bg-white/5"
               >
-                {" "}
                 <FaInstagram className="w-6 h-6 hover:scale-110 transition-transform duration-300 cursor-pointer" />
               </a>
               <a
@@ -241,7 +251,6 @@ export function Nav() {
                 target="_blank"
                 className="p-1 rounded-lg shadow-lg border border-gray-600 bg-white/5"
               >
-                {" "}
                 <FaDiscord className="w-6 h-6 hover:scale-110 transition-transform duration-300 cursor-pointer" />
               </a>
               <a
@@ -249,7 +258,6 @@ export function Nav() {
                 target="_blank"
                 className="p-1 rounded-lg shadow-lg border border-gray-600 bg-white/5"
               >
-                {" "}
                 <FaTwitter className="w-6 h-6 hover:scale-110 transition-transform duration-300 cursor-pointer" />
               </a>
               <a
