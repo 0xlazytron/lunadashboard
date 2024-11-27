@@ -7,6 +7,7 @@ import {
   User,
   Settings,
   Shield,
+  Book,
 } from "lucide-react";
 import { useWallet } from "@solana/wallet-adapter-react";
 
@@ -17,12 +18,12 @@ const routes = [
     icon: LayoutDashboard,
     label: "Dashboard",
   },
-  {
-    disabled: true,
-    href: "/dashboard/transactions",
-    icon: Receipt,
-    label: "Transactions",
-  },
+  // {
+  //   disabled: true,
+  //   href: "/dashboard/transactions",
+  //   icon: Receipt,
+  //   label: "Transactions",
+  // },
   {
     disabled: false,
     href: "/dashboard/referrals",
@@ -41,6 +42,11 @@ const routes = [
     icon: Settings,
     label: "Settings",
   },
+  {
+    href: "/dashboard/rules",
+    icon: Book,
+    label: "Referral Rules"
+  }
 ];
 
 export function Sidebar() {
@@ -59,11 +65,10 @@ export function Sidebar() {
             <NavLink
               key={route.href}
               to={route.disabled ? "" : route.href}
-              className={`flex items-center rounded-lg px-4 py-2 transition-colors ${
-                isActive
-                  ? "bg-white/20 text-white"
-                  : "text-gray-300 hover:bg-white/10 hover:text-white"
-              }`}
+              className={`flex items-center rounded-lg px-4 py-2 transition-colors ${isActive
+                ? "bg-white/20 text-white"
+                : "text-gray-300 hover:bg-white/10 hover:text-white"
+                }`}
             >
               <Icon className="mr-3 h-5 w-5" />
               <span>{route.label}</span>
@@ -73,14 +78,13 @@ export function Sidebar() {
 
         {publicKey &&
           publicKey.toBase58() ===
-            "Do6xPSZRBbpVjeJqMKtTeUzs9wrYRjLKdb649GacinSY" && (
+          "Do6xPSZRBbpVjeJqMKtTeUzs9wrYRjLKdb649GacinSY" && (
             <NavLink
               to={"/dashboard/overview"}
-              className={`flex items-center rounded-lg px-4 py-2 transition-colors ${
-                pathname === "/dashboard/overview"
-                  ? "bg-white/20 text-white"
-                  : "text-gray-300 hover:bg-white/10 hover:text-white"
-              }`}
+              className={`flex items-center rounded-lg px-4 py-2 transition-colors ${pathname === "/dashboard/overview"
+                ? "bg-white/20 text-white"
+                : "text-gray-300 hover:bg-white/10 hover:text-white"
+                }`}
             >
               <Shield className="mr-3 h-5 w-5" />
               <span>Admin Overview</span>

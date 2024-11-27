@@ -15,6 +15,7 @@ import { ClientLayout } from "./client/layouts/ClientLayout";
 import ProtectedRoute from "./admin/routes/protected";
 import { RegistrationPage } from "./client/pages/Registraion";
 import AdminOverview from "./admin/pages/Overview";
+import ReferralRules from "./admin/pages/ReferralRules";
 
 export function AppRoutes() {
   return (
@@ -37,6 +38,7 @@ export function AppRoutes() {
         <Route path="profile" element={<ProfilePage />} />
         <Route path="settings" element={<SettingsPage />} />
         <Route path="overview" element={<AdminOverview />} />
+        <Route path="rules" element={<ReferralRules />} />
       </Route>
     </Routes>
   );
