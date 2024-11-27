@@ -16,6 +16,7 @@ import ProtectedRoute from "./admin/routes/protected";
 import { RegistrationPage } from "./client/pages/Registraion";
 import AdminOverview from "./admin/pages/Overview";
 import ReferralRules from "./admin/pages/ReferralRules";
+import Badges from "./admin/pages/Badges";
 
 export function AppRoutes() {
   return (
@@ -39,6 +40,7 @@ export function AppRoutes() {
         <Route path="settings" element={<SettingsPage />} />
         <Route path="overview" element={<AdminOverview />} />
         <Route path="rules" element={<ReferralRules />} />
+        <Route path="badges" element={<Badges />} />
       </Route>
     </Routes>
   );

@@ -2,12 +2,12 @@ import { NavLink } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import {
   LayoutDashboard,
-  Receipt,
   Users,
   User,
   Settings,
   Shield,
   Book,
+  Award,
 } from "lucide-react";
 import { useWallet } from "@solana/wallet-adapter-react";
 
@@ -46,6 +46,11 @@ const routes = [
     href: "/dashboard/rules",
     icon: Book,
     label: "Referral Rules"
+  },
+  {
+    href: "/dashboard/badges",
+    icon: Award,
+    label: "Badges"
   }
 ];
 

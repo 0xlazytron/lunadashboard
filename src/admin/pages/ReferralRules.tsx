@@ -98,7 +98,7 @@ export default function ReferralRules() {
                 </ul>
             </Card>
 
-            <Card title="Smart Contract Requirements">
+            <Card title="IMPORTANT INFO">
                 <ul className="list-disc list-inside text-white space-y-2">
                     <li>Automatic calculation and payout of commissions.</li>
                     <li>Real-time or regularly updated team sales calculations.</li>
