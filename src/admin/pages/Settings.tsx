@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Input } from "../components/ui/Input";
-import { Label } from "../components/ui/Label";
-import { Select, SelectContent, SelectItem } from "../components/ui/Select";
-import { VBox } from "../components/directional/flex";
-import { ReferralLinkComponent } from "../components/web3/ReferralComponent";
+import { Input } from "../../components/ui/Input";
+import { Label } from "../../components/ui/Label";
+import { VBox } from "../../components/directional/flex";
+import { ReferralLinkComponent } from "../../components/web3/ReferralComponent";
 import { useWallet } from "@solana/wallet-adapter-react";
 import { ReferralService } from "../../lib/referral";
 
 export function SettingsPage() {
   const wallet = useWallet();
 
-  const [selectedChain, setSelectedChain] = useState("");
+  const [selectedChain] = useState("");
 
   const [user, setUser] = useState<UserData>();
 

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNetworkConfiguration } from "../../../providers/NetworkConfigurationProvider";
+import { useNetworkConfiguration } from "../../providers/NetworkConfigurationProvider";
 
 export const NetworkSwitcher = () => {
   const { networkConfiguration, setNetworkConfiguration } =

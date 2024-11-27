@@ -3,7 +3,7 @@ const Mint = () => {
     <div className="text-white relative p-4 md:p-8">
       <div className="absolute top-0 left-0 w-[100%] h-[100%] bgballs"></div>
       <div className="absolute top-0 left-0 w-[100%] bg2 z-[-1]  h-[100%] "></div>
-      <div className="gradient z-[-1] right-[-30%] hidden md:block absolute top-40 w-[500px] rounded-full blur-[220px] h-[500px]"></div>
+      <div className="gradient z-[-1] right-[-30%] hidden lg:block absolute top-40 w-[500px] rounded-full blur-[220px] h-[500px]"></div>
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-10">
         {/* Left side: Wallet Image and Mint Now Section */}
         <div className="flex flex-col p-5 flex-[.4] items-center lg:items-start gap-4">

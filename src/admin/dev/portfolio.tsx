@@ -1,7 +1,7 @@
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
 import { useEffect, useState } from "react";
 import { getParsedNftAccountsByOwner } from "@nfteyez/sol-rayz";
-import { VBox } from "../components/directional/flex";
+import { VBox } from "../../components/directional/flex";
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 import { PublicKey } from "@solana/web3.js";
 import { AccountLayout } from "@solana/spl-token";

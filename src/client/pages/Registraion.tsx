@@ -1,7 +1,7 @@
 import { useWallet } from "@solana/wallet-adapter-react";
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
-import { NetworkSwitcher } from "../../admin/components/web3/NetworkSwitcher";
-import { VBox } from "../../admin/components/directional/flex";
+import { NetworkSwitcher } from "../../components/web3/NetworkSwitcher";
+import { VBox } from "../../components/directional/flex";
 import { MouseEvent, useEffect, useRef, useState } from "react";
 import { ReferralService } from "../../lib/referral";
 import { ChangeEvent } from "react";

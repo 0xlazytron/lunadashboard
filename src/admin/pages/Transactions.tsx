@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button } from "../components/ui/Button";
+import { Button } from "../../components/ui/Button";
 import { ExternalLink } from "lucide-react";
 
 const transactions = [
